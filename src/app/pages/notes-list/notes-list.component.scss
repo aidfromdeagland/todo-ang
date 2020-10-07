@@ -1,3 +1,5 @@
+@import "../../../scaffolding";
+
 .main-container {
   margin: 0 auto;
   max-width: 480px;
@@ -8,9 +10,20 @@
 
 .notes-list {
   margin-top: 2em;
+  margin-bottom: 3em;
 }
 
 app-note-card {
   display: block;
   margin-bottom: 1em;
+}
+
+.floating-add-button {
+  position: fixed;
+  bottom: 0;
+  width: 480px;
+  height: 2em;
+  border-radius: 0;
+  font-size: 1.5em;
+  box-shadow: 0 0 15px 5px rgba($purple, 0.2);
 }

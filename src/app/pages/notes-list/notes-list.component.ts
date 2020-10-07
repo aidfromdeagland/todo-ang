@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import mockData from '../../mockData';
+import { NotesService } from '../../shared/notes.service';
+import { Note } from '../../shared/note.model';
 
 @Component({
   selector: 'app-notes-list',
@@ -8,11 +10,12 @@ import mockData from '../../mockData';
 })
 export class NotesListComponent implements OnInit {
 
-  public mockData = mockData;
+  public notes: Note[] = mockData || new Array<Note>();
 
-  constructor() { }
+  constructor(private notesService: NotesService) { }
 
   ngOnInit(): void {
+    this.notesService.getAll();
   }
 
 }
