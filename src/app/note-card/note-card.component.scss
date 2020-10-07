@@ -1,0 +1,69 @@
+@import "../../scaffolding";
+
+.note-card-container {
+  position: relative;
+  border-radius: 0.2em;
+  background: #ffffff;
+  box-shadow: 0 2px 15px 2px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s;
+
+  &:hover {
+    cursor: pointer;
+    box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.1);
+
+    .note-card-close {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .note-card-content {
+    padding: 1.5em;
+
+    .note-card-title {
+      font-size: 1.2em;
+      font-weight: bold;
+      color: $purple;
+    }
+  }
+
+  .note-card-body {
+    position: relative;
+    max-height: 4em;
+    overflow: hidden;
+
+    .note-card-fadeout {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 30%;
+      background: linear-gradient(to bottom, transparent 0, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 1));
+      pointer-events: none;
+    }
+  }
+}
+
+.note-card-close {
+  position: absolute;
+  right: 1em;
+  top: 1em;
+  height: 2em;
+  width: 2em;
+  border: none;
+  border-radius: 0.3em;
+  color: $light-red;
+  opacity: 0;
+  transform: scale(0.5);
+  transition: opacity 0.2s, transform 0.2s;
+  transition-delay: 0.3s;
+
+  &:hover {
+    color: darken($light-red, 5%);
+    background-color: rgba($purple, 0.2);
+  }
+
+  &:active {
+    color: darken($light-red, 7%);
+    background-color: rgba($purple, 0.4);
+  }
+}
