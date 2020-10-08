@@ -1,14 +1,17 @@
 <div class="note-card-container" #container>
-  <div class="note-card-content">
-    <h3 class="note-card-title">{{title}}</h3>
-    <div #bodyText class="note-card-body">
-      <p class="note-card-text">
-        {{body}}
-      </p>
-      <div #truncator class="note-card-fadeout"></div>
+  <a [routerLink]="link">
+    <div class="note-card-content">
+      <h3 class="note-card-title">{{title}}</h3>
+      <div #bodyText class="note-card-body">
+        <p class="note-card-text">
+          {{body}}
+        </p>
+        <div #truncator class="note-card-fadeout"></div>
+      </div>
     </div>
-  </div>
-  <button class="button note-card-close">
+  </a>
+
+  <button class="button note-card-close" (click)="onDeleteClick()">
     <span class="icon is-small">
       <i class="fas fa-trash-alt"></i>
     </span>

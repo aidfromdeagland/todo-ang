@@ -15,8 +15,8 @@ export class NotesService {
     return this.notes;
   }
 
-  get(id: number): Note {
-    return this.notes.find((note) => note.id === id);
+  get(id: number | string): Note {
+    return this.notes.find((note) => note.id === +id);
   }
 
   getLength(): number {
@@ -31,13 +31,13 @@ export class NotesService {
     this.notes.push(note);
   }
 
-  update(id: number, title: string, body: string): void {
-    const currentNote = this.notes.find((note) => note.id === id);
+  update(id: number | string, title: string, body: string): void {
+    const currentNote = this.notes.find((note) => note.id === +id);
     currentNote.title = title;
     currentNote.body = body;
   }
 
-  delete(id: number): void {
-    this.notes.splice(this.notes.findIndex((note) => note.id === id), 1);
+  delete(id: number | string): void {
+    this.notes.splice(this.notes.findIndex((note) => note.id === +id), 1);
   }
 }

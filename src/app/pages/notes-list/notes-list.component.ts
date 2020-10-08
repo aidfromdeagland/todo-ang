@@ -18,4 +18,7 @@ export class NotesListComponent implements OnInit {
     this.notesService.getAll();
   }
 
+  deleteNote(id: number): void {
+    this.notesService.delete(id);
+  }
 }
