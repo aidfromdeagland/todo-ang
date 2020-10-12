@@ -71,17 +71,37 @@ import { animate, query, stagger, style, transition, trigger } from '@angular/an
     ])
   ]
 })
+
 export class NotesListComponent implements OnInit {
 
   public notes: Note[] = mockData || new Array<Note>();
+  /*public filteredNotes: Note[] = new Array<Note>();*/
 
   constructor(private notesService: NotesService) { }
 
   ngOnInit(): void {
     this.notesService.getAll();
+    /*this.filteredNotes = this.notes;*/
   }
 
   deleteNote(id: number): void {
     this.notesService.delete(id);
   }
+
+/*  filter(filterQuery: string): void {
+    filterQuery = filterQuery.toLowerCase().trim();
+    const results: Note[] = new Array<Note>();
+    const terms: string[] = filterQuery.split(' ');
+    terms.forEach((term) => {
+      for (const note of this.notes) {
+        if (!results.includes(note)) {
+          if (note.title.toLowerCase().includes(term) || note.body.toLowerCase().includes(term)) {
+            results.push(note);
+          }
+        }
+      }
+    });
+
+    this.filteredNotes = results;
+  }*/
 }
